@@ -9,6 +9,8 @@ public class CPTJada {
 		TextOutputFile fileScore = new TextOutputFile ("Leaderboard.txt",true);
 		TextInputFile fileScore2 = new TextInputFile ("Leaderboard.txt");	
 		TextOutputFile addTheme = new TextOutputFile ("AddTheme.txt");	
+		
+		System.out.println("Loaded data files");
 	
 		// Animations
 		Console con = new Console("Guess the word!", 1280, 720);
