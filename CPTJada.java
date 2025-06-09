@@ -157,6 +157,10 @@ public class CPTJada {
 	}//while
 			con.println("End of game");
 		
+		if(strOption.equalsIgnoreCase("h")){
+			
+		}//if h
+		
 			
 		
 		// }
