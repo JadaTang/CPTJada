@@ -7,7 +7,9 @@ public class CPTJada {
 	public static void main(String[] args) {
 		
 		TextOutputFile fileScore = new TextOutputFile ("Leaderboard.txt",true);
-		
+		TextInputFile fileScore2 = new TextInputFile ("Leaderboard.txt");	
+		TextOutputFile addTheme = new TextOutputFile ("AddTheme.txt");	
+	
 		// Animations
 		Console con = new Console("Guess the word!", 1280, 720);
 		int intX = 500;
@@ -17,6 +19,7 @@ public class CPTJada {
 		String strPlayAgain = "yes";
 		String strOption;
 		String strName;
+		String strAddTheme="a";
 		int intWins=0;
 		BufferedImage imgFlower = con.loadImage("Flower.jpg");
 		Font fntTest = con.loadFont("JouneyWhiskers-Regular.ttf", 40);
@@ -76,7 +79,79 @@ public class CPTJada {
 			}
 			con.println("Number of wins:" +intWins);
 
-		}//if
+		}//if p 
+		if (strOption.equalsIgnoreCase("v")) {
+			int intCount3=0;
+			int intA;
+			String strScore[][];
+			strScore = new String[10][2];
+			while (fileScore2.eof() == false) {
+				strScore[intCount3][0] = fileScore2.readLine();
+				strScore[intCount3][1] = fileScore2.readLine();
+				intCount3++;
+			}
+		//Testing the content in array
+		//for(intA = 0; intA <= intCount3;intA++){
+		// con.println("user is: "+strScore[intA][0]);
+		// con.println("score is: "+strScore[intA][1]);
+		//}//for 
+		//con.println("intCount3" +intCount3);
+		//con.println("intA" +intA);
+
+			// bubble sort
+			int intCount4;
+			int intCount5;
+			String strNameTemp;
+			String strWordTemp;
+			String strNumberTemp;
+
+			for (intCount4 = 0; intCount4 < intCount3 - 1; intCount4++) {
+				for (intCount5 = 0; intCount5 < intCount3 - 1; intCount5++) {
+					// Convert the people's score to integer and compare
+					if (Integer.parseInt(strScore[intCount5][1]) > Integer.parseInt(strScore[intCount5 + 1][1])) {
+						// Swap here
+						// swap name
+						strNameTemp = strScore[intCount5][0];
+						strScore[intCount5][0] = strScore[intCount5 + 1][0];
+						strScore[intCount5 + 1][0] = strNameTemp;
+						// swap numbers
+						strNumberTemp = strScore[intCount5][1];
+						strScore[intCount5][1] = strScore[intCount5 + 1][1];
+						strScore[intCount5 + 1][1] = strNumberTemp;
+					}
+
+				}
+			}
+			// end bubble sort
+		//Testing the content in array
+		con.println("Player:          Score:");
+		for(intA = 0; intA <= intCount3;intA++){
+		 con.print(strScore[intA][0]);
+		 con.println("                 "+strScore[intA][1]);
+		}//for 
+		
+		con.println("Play game (p)");
+		con.println("View leaderboard (v)");
+		con.println("Add theme (a)");
+		con.println("Help (h)");
+		con.println("Quit (q)");
+		con.println("Select an option");
+		strOption = con.readLine();
+		
+		}//if v
+		
+		if(strOption.equalsIgnoreCase("a")){
+				//con.println("Enter theme name");
+				//strAddTheme = con.readLine();
+				//addTheme.println(strAddTheme);
+		while(strAddTheme.equalsIgnoreCase("stop")==false){
+				con.println("Enter words in theme");
+				strAddTheme = con.readLine();
+				addTheme.println(strAddTheme);
+		}//while		
+		}//if a
+		addTheme.close();
+		
 	}//while
 			con.println("End of game");
 		
@@ -129,6 +204,10 @@ public class CPTJada {
 			for (intCount = 0; intCount < 10; intCount++) {
 				con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
 			}
+			//String strWordsSorted[][];
+			//strWordsSorted = new String[10][2];
+			//strWordsSorted[][] = bubbleSort(strWords[][],10);
+
 			// bubble sort
 			int intCount2;
 			String strNameTemp;
@@ -153,6 +232,7 @@ public class CPTJada {
 				}
 			}
 			// end bubble sort
+
 			con.println("after sort");
 			for (intCount = 0; intCount < 10; intCount++) {
 				con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
@@ -210,4 +290,37 @@ public class CPTJada {
 		return intScore;
 
 	}
+	/*
+	public static int bubbleSort(string strWords[][], int intSize) {	
+		
+			// bubble sort
+			int intCount2;
+			String strNameTemp;
+			String strWordTemp;
+			String strNumberTemp;
+
+			for (intCount2 = 0; intCount2 < intSize - 1; intCount2++) {
+				for (intCount = 0; intCount < intSize - 1; intCount++) {
+					// Convert the people's score to integer and compare
+					if (Integer.parseInt(strWords[intCount][1]) > Integer.parseInt(strWords[intCount + 1][1])) {
+						// Swap here
+						// swap name
+						strNameTemp = strWords[intCount][0];
+						strWords[intCount][0] = strWords[intCount + 1][0];
+						strWords[intCount + 1][0] = strNameTemp;
+						// swap numbers
+						strNumberTemp = strWords[intCount][1];
+						strWords[intCount][1] = strWords[intCount + 1][1];
+						strWords[intCount + 1][1] = strNumberTemp;
+					}
+
+				}
+			}
+			// end bubble sort
+
+			return strWords[][];
+	
+			
+	}
+	*/
 }
