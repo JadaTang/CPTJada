@@ -31,7 +31,7 @@ public class CPTJada {
 			con.fillRoundRect(1000, intY, 20, 30, 5, 10);
 			intY = intY + 1;
 
-			// con.drawImage(imgFlower,intX,650);
+			con.drawImage(imgFlower,intX,650);
 			intX = intX - 2;
 
 			con.setDrawFont(fntTest);
@@ -86,12 +86,13 @@ public class CPTJada {
 			int intCount3=0;
 			int intA;
 			String strScore[][];
-			strScore = new String[10][2];
+			strScore = new String[99][2];
 			while (fileScore2.eof() == false) {
 				strScore[intCount3][0] = fileScore2.readLine();
 				strScore[intCount3][1] = fileScore2.readLine();
 				intCount3++;
 			}
+
 		//Testing the content in array
 		//for(intA = 0; intA <= intCount3;intA++){
 		// con.println("user is: "+strScore[intA][0]);
@@ -121,7 +122,6 @@ public class CPTJada {
 						strScore[intCount5][1] = strScore[intCount5 + 1][1];
 						strScore[intCount5 + 1][1] = strNumberTemp;
 					}
-
 				}
 			}
 			// end bubble sort
@@ -149,34 +149,43 @@ public class CPTJada {
 		while(strAddTheme.equalsIgnoreCase("stop")==false){
 				con.println("Enter words in theme");
 				strAddTheme = con.readLine();
+				if(strAddTheme.equalsIgnoreCase("stop")==false){
 				addTheme.println(strAddTheme);
-		}//while		
+				}
+		}//while	
+		con.println("Play game (p)");
+		con.println("View leaderboard (v)");
+		con.println("Add theme (a)");
+		con.println("Help (h)");
+		con.println("Quit (q)");
+		con.println("Select an option");
+		strOption = con.readLine();	
 		}//if a
+		
 		addTheme.close();
+
+
+		if(strOption.equalsIgnoreCase("h")){
+			con.println("help");
+			con.println("If enter p, the game of guess the word will begin");
+			con.println("If enter v, show all player name and scores");	
+			con.println("If enter a, add words to a new theme");	
+			con.println("If enter q, exit the game");	
+			con.println("end help");
+			
+		con.println("Play game (p)");
+		con.println("View leaderboard (v)");
+		con.println("Add theme (a)");
+		con.println("Help (h)");
+		con.println("Quit (q)");
+		con.println("Select an option");
+		strOption = con.readLine();
+		}//if h
 		
 	}//while
 			con.println("End of game");
 		
-		if(strOption.equalsIgnoreCase("h")){
-			
-		}//if h
-		
-			
-		
-		// }
 
-		// Testing the content in array
-		// for(intCount = 0; intCount <= 2;intCount++){
-		// con.println("theme is: "+strThemesWords[0][intCount]);
-
-		// for(intI=1; intI <=10; intI++){
-		// con.println("word is: "+strThemesWords[intI][intCount]);
-		// }
-		// }
-
-		// Leaderboard..
-
-		// Add theme..
 
 	fileScore.close();
 	}
@@ -207,9 +216,9 @@ public class CPTJada {
 			}
 
 			int intCount;
-			for (intCount = 0; intCount < 10; intCount++) {
-				con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
-			}
+			//for (intCount = 0; intCount < 10; intCount++) {
+				//con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
+			//}
 			//String strWordsSorted[][];
 			//strWordsSorted = new String[10][2];
 			//strWordsSorted[][] = bubbleSort(strWords[][],10);
