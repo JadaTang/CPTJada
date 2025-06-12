@@ -1,7 +1,14 @@
+//Jada
+//May 25 2025
+//June 12 2025
+//CPT
+
 import arc.*;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.Font;
+
+
 
 public class CPTJada {
 	public static void main(String[] args) {
