@@ -23,18 +23,16 @@ public class CPTJada {
 		String strName;
 		String strAddTheme="a";
 		int intWins=0;
-		BufferedImage imgFlower = con.loadImage("Flower.jpg");
-		Font fntTest = con.loadFont("JouneyWhiskers-Regular.ttf", 40);
+		BufferedImage imgGuessTheWord = con.loadImage("GuessTheWord.png");
 		while (intX > 0) {
 
 			con.setDrawColor(new Color(70, 220, 230));
-			con.fillRoundRect(1000, intY, 20, 30, 5, 10);
+			//con.fillRoundRect(1000,intY,200,200,50,50);
 			intY = intY + 1;
 
-			con.drawImage(imgFlower,intX,650);
+			con.drawImage(imgGuessTheWord,intX+500,100);
 			intX = intX - 2;
 
-			con.setDrawFont(fntTest);
 			con.setDrawColor(new Color(200, 30, 30));
 
 			con.repaint();
@@ -166,13 +164,23 @@ public class CPTJada {
 
 
 		if(strOption.equalsIgnoreCase("h")){
-			con.println("help");
-			con.println("If enter p, the game of guess the word will begin");
-			con.println("If enter v, show all player name and scores");	
-			con.println("If enter a, add words to a new theme");	
+			con.println("Help");
+			con.println("");
+			con.println("If enter p, the game of guess the word");
+			con.println("will begin");
+			con.println("");
+			con.println("If enter v, show all player name and");
+			con.println("scores");	
+			con.println("");
+			con.println("If enter a, add words to a new theme");
+			con.println("enter words to the new theme,once");			
+			con.println("enter stop, words will be outputted");
+			con.println("to AddTheme.txt");	
+			con.println("");
 			con.println("If enter q, exit the game");	
-			con.println("end help");
-			
+			con.println("");
+			con.println("End help");
+			con.println("");
 		con.println("Play game (p)");
 		con.println("View leaderboard (v)");
 		con.println("Add theme (a)");
@@ -248,10 +256,10 @@ public class CPTJada {
 			}
 			// end bubble sort
 
-			con.println("after sort");
-			for (intCount = 0; intCount < 10; intCount++) {
-				con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
-			}
+			//con.println("after sort");
+			//for (intCount = 0; intCount < 10; intCount++) {
+				//con.println(strWords[intCount][0] + "-" + strWords[intCount][1]);
+			//}
 		
 
 		// Game of guessing the word
